@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Persona</title>
+</head>
+<body>
+    <h1>Editar Persona</h1>
+    <form th:action="@{/personas/actualizar}" th:object="${persona}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}">
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" required><br>
+        <label>Apellido:</label>
+        <input type="text" th:field="*{apellido}" required><br>
+        <label>Foto:</label>
+        <input type="file" th:field="*{foto}"><br>
+        <button type="submit">Guardar</button>
+    </form>
+    <a th:href="@{/personas/lista}">Cancelar</a>
+</body>
+</html>

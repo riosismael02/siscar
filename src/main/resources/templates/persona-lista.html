@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Personas</title>
+</head>
+<body>
+    <h1>Lista de Personas</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="persona : ${personas}">
+            <td th:text="${persona.nombre}"></td>
+            <td th:text="${persona.apellido}"></td>
+            <td><img th:src="'data:image/jpeg;base64,' + ${persona.fotoBase64}" width="100" height="100" alt="Foto"></td>
+            <td>
+                <a th:href="@{/personas/editar/{id}(id=${persona.id})}">Editar</a> |
+                <a th:href="@{/personas/eliminar/{id}(id=${persona.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

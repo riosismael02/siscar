@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Persona</title>
+</head>
+<body>
+    <h1>Formulario de Persona</h1>
+
+    <!-- Mensaje de éxito o error -->
+    <p th:if="${mensaje}" th:text="${mensaje}" style="color: green;"></p>
+
+    <!-- Formulario -->
+    <form th:action="@{/personas/guardar}" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+        <br>
+
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*">
+        <br><br>
+
+        <button type="submit">Guardar Persona</button>
+    </form>
+</body>
+</html>
